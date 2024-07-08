@@ -55,8 +55,10 @@ html"""
 <div>
   <img src="https://ppl.e-smartresponders.com/wp-content/uploads/2018/02/circuit_anim_v9.gif" style="width: 600px; height: 400px;">
   <p style="text-align: right;">Source: <a href="https://ppl.e-smartresponders.com/wp-content/uploads/2018/02/circuit_anim_v9.gif">https://ppl.e-smartresponders.com</a></p>
+  <p style="text-align: right;">© 2018, PPL Electric Utilities</p>
 </div>
 """
+
 
 # ╔═╡ 7efc8587-3a19-4390-a02b-c62002f72930
 md"""
@@ -75,14 +77,18 @@ md"""## Understanding Linear and Nonlinear Circuit Characteristics"""
 
 # ╔═╡ 3b907cd2-6b26-4b56-abfa-9f464b75435d
 md"""
-### Ohm's Law with components Resistor and inductor
+### Ohm's Law with component Resistor
 Ohm's Law is like a simple recipe for understanding how electricity flows through a circuit. Imagine the voltage (V) as the push that makes electricity move, the current (I) as the flow of electricity,and the resistance (R) as the roadblock that slows it down. So, if you know any two of these values, you can easily figure out the third! Easy-peasy, right? ⚡
-
 $[ V = I \times R ]$
-![alternative text](https://toppr-question-images.s3.ap-southeast-1.amazonaws.com/question_images/1754809_1832048_ans_7c73ef2844ac4b2689328b610b5aa29e.png)
 """
 
-
+# ╔═╡ 2b694a48-ffe5-4e90-a693-3aeb6af8decc
+html"""
+<div>
+  <img src="https://toppr-question-images.s3.ap-southeast-1.amazonaws.com/question_images/1754809_1832048_ans_7c73ef2844ac4b2689328b610b5aa29e.png" alt="alternative text" style="width: 100%; max-width: 600px;">
+  <p style="text-align: right;">Source: <a href="https://toppr-question-images.s3.ap-southeast-1.amazonaws.com/question_images/1754809_1832048_ans_7c73ef2844ac4b2689328b610b5aa29e.png">Toppr</a></p>
+  <p style="text-align: right;">© Toppr</p>
+</div>"""
 
 # ╔═╡ d0fd21c2-7ffb-417d-9ef9-1f33f11d7e10
 md""" ### Diodes and Nonlinear Behavior
@@ -92,11 +98,16 @@ Diodes are electronic components that allow current to flow in one direction onl
 $I = I_s \left(e^{\frac{V}{n V_t}} - 1\right)$
 
 where \(I_s\) is the superstar saturation current, \(n\) is the ideality factor, and \(V_t\) is the thermal voltage.
-![alternative text](https://www.elprocus.com/wp-content/uploads/2017/01/non-linear-circuit.jpg)
-
-Now, let's plug in those circuits and light up the stage with our interactive exploration! 🎛🔌
 """
 
+# ╔═╡ b0b6b73d-05d0-4d70-8561-a7b6ce3c3ec4
+html"""
+<div>
+  <img src="https://www.elprocus.com/wp-content/uploads/2017/01/non-linear-circuit.jpg" alt="alternative text" style="width: 100%; max-width: 600px;">
+  <p style="text-align: right;">Source: <a href="https://www.elprocus.com/non-linear-circuits/">Elprocus</a></p>
+  <p style="text-align: right;">© 2017, Elprocus</p>
+</div>
+"""
 
 # ╔═╡ ef6433a0-b84e-42b8-afe8-b45af0acad52
 md"""
@@ -406,15 +417,15 @@ voltages= ohms_law_voltage(current_range,resistance_slider)
 
 # ╔═╡ 36060e84-9221-40af-8fb7-b5842fe04d15
 begin
-	p1_resistor = plot(voltage_range, currents, label="Resistor Current", xlabel="Voltage (V)", ylabel="Current (A)", legend=:topleft, title="Current vs Voltage (Resistor)", color=:red,linewidth=5)
+	p1_resistor = plot(voltage_range, currents, label="Resistor Current", xlabel="Voltage (V)", ylabel="Current (A)", legend=:topleft, title="Current vs Voltage (Resistor)", tittlefont = 10, color=:red,linewidth=5)
 	xlims!(p1_resistor, (0, 10))
 	ylims!(p1_resistor, (0, 10))
 	
 	# Create the second plot (Current vs Voltage)
-	p2_resistor = plot(current_range, voltages, label="Resistor Voltage", xlabel="Current (A)", ylabel="Voltage (V)", legend=:topleft, title="Voltage vs Current (Resistor)", color=:blue,linewidth=5)
+	p2_resistor = plot(current_range, voltages, label="Resistor Voltage", xlabel="Current (A)", ylabel="Voltage (V)", legend=:topleft, title="Voltage vs Current (Resistor)",  tittlefont = 10 ,  color=:blue,linewidth=5)
 	xlims!(p2_resistor, (0, 10))
 	ylims!(p2_resistor, (0, 100))
-	linear_plot = plot(p1_resistor, p2_resistor, layout=(1, 2), size=(900, 700), title="Linear Circuit")
+	linear_plot = plot(p1_resistor, p2_resistor, layout=(1, 2), size=(700, 350))
 
 
 end
@@ -429,8 +440,8 @@ end;
 begin
 diode=plot([voltage_range_forward, voltage_range_reverse], [currents_forward, currents_reverse],
      label=["Forward Bias" "Reverse Bias"], xlabel="Voltage (V)", ylabel="Current (A)",
-     title="Diode Characteristics", color=[:blue :red], linestyle=[:solid :dash],linewidth = 5)
-ylims!(diode,(0, 1))  # Set the y-axis limits from 0 to 1
+     title="Diode Characteristics(Current Vs Voltage)", color=[:blue :red], linestyle=[:solid :dash],linewidth = 5)
+ylims!(diode,(0, 10))  # Set the y-axis limits from 0 to 10
 end
 
 # ╔═╡ f67793b1-ed5e-447f-8d12-86d072e509fb
@@ -2378,11 +2389,13 @@ version = "1.4.1+1"
 # ╟─7efc8587-3a19-4390-a02b-c62002f72930
 # ╟─122c2c7a-2200-4de0-ad59-0ee083cd016f
 # ╟─3b907cd2-6b26-4b56-abfa-9f464b75435d
+# ╟─2b694a48-ffe5-4e90-a693-3aeb6af8decc
 # ╟─f37af99e-c607-42af-9866-b1415a4112d9
 # ╟─6d09e348-c87c-42a7-a372-90aafbb72603
 # ╟─36060e84-9221-40af-8fb7-b5842fe04d15
 # ╟─4cba6967-2b8b-4f5b-9403-65ab3058fd7c
 # ╟─d0fd21c2-7ffb-417d-9ef9-1f33f11d7e10
+# ╟─b0b6b73d-05d0-4d70-8561-a7b6ce3c3ec4
 # ╟─fdd2af58-8b18-45b9-83a5-c4aa15ab2e4d
 # ╟─d6ec037d-5c3c-4667-90f6-d299ee86014a
 # ╟─ef6433a0-b84e-42b8-afe8-b45af0acad52
@@ -2392,10 +2405,10 @@ version = "1.4.1+1"
 # ╟─61102c51-df86-4c2a-849e-79970cd99455
 # ╟─3063317d-cbed-45ab-b110-eba76525e078
 # ╟─6df00690-1410-4f1c-aa25-ec8cdf8e2aaa
-# ╟─38c90175-a6c0-4c00-9083-5e1c4d52cc0c
-# ╟─a2d92ee1-846a-4a68-b321-a20d15e56fc6
-# ╟─0edb3244-cd27-4dd1-9497-21fccf7b2617
-# ╟─2f357d29-52ef-47ab-aa6e-cee99c7f4014
+# ╠═38c90175-a6c0-4c00-9083-5e1c4d52cc0c
+# ╠═a2d92ee1-846a-4a68-b321-a20d15e56fc6
+# ╠═0edb3244-cd27-4dd1-9497-21fccf7b2617
+# ╠═2f357d29-52ef-47ab-aa6e-cee99c7f4014
 # ╟─10f999a6-95c8-44df-9ca3-e19c1092a586
 # ╟─8fbaacb1-ba3b-4d7f-989f-3f61f4855b9e
 # ╟─1fa88c3f-21ad-4731-92b9-187b0e43c891
