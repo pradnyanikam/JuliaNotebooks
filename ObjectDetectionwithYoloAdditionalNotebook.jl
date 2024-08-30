@@ -47,6 +47,8 @@ begin
 		[PlutoUI](https://www.juliapackages.com/p/PlutoUI): Extension for Pluto to handle interactivity, provides the Sliders, Checkboxes and Color Picker. 
 	
 		[HypertextLiteral](https://www.juliapackages.com/p/HypertextLiteral): Drawing library, specifically for graphs.
+
+		[Test Images](https://testimages.juliaimages.org/stable/):The TestImages package is a handy tool when you need readily available images for testing and development in Julia's image processing ecosystem.
 	
 	"""
 end
@@ -75,13 +77,6 @@ md"""
   - **Edge Detection**: Highlight the edges in your image using Canny edge detection.
 """
 
-# ╔═╡ 3801fd95-c84b-4bb6-85c9-ad580c0c8fac
-md""" 
-!!! note
-
-   **This notebook combines deep learning with image processing techniques to provide an interactive and educational experience.**
-"""
-
 # ╔═╡ f640601a-362e-445f-8a49-3b6bb3b9e509
 md""" ## Conclusion 
 
@@ -93,7 +88,7 @@ By integrating object detection and image filtering, this notebook demonstrates 
 md""" #### Mode Selection """
 
 # ╔═╡ 465d8f90-95ce-4219-b418-c7f8df42a01e
-@bind mode Select(["Object Detection", "Image Processing"])
+@bind mode Select([ "Image Processing","Object Detection"])
 
 # ╔═╡ f68f9d68-4810-415c-b241-b3d999af96df
 md""" #### Capture Mode """
@@ -2910,7 +2905,6 @@ version = "1.4.1+1"
 # ╟─15228a3a-d20c-4f09-a52c-92a235ad9350
 # ╟─a87c71a0-67e7-41d0-a219-da4bd63b6c0a
 # ╟─5cd4eec3-51d8-4ca7-aaed-38ebf1a56554
-# ╟─3801fd95-c84b-4bb6-85c9-ad580c0c8fac
 # ╟─f640601a-362e-445f-8a49-3b6bb3b9e509
 # ╟─9f0fb058-7507-4c61-8af2-fcdfa58e393b
 # ╟─465d8f90-95ce-4219-b418-c7f8df42a01e
